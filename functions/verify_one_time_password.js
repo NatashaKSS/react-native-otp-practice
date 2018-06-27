@@ -36,4 +36,6 @@ module.exports = function(req, res) {
     .catch((error) => {
       return res.status(422).send({ error });
     });
+
+  return null;
 };

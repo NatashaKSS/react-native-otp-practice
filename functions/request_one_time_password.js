@@ -36,6 +36,8 @@ module.exports = function(req, res) {
           .update({ code, codeValid: true }, () => {
             res.send({ success: true });
           });
+
+        return null;
       });
 
       return null;
@@ -43,4 +45,6 @@ module.exports = function(req, res) {
     .catch(error => {
       res.status(422).send({ error });
     });
+
+    return null;
 };

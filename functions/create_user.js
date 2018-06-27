@@ -13,4 +13,6 @@ module.exports = function(req, res) {
   admin.auth().createUser({ uid: phone })
     .then(user => res.send(user))
     .catch(error => res.status(422).send({ error }));
+
+  return null;
 }
