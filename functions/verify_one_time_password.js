@@ -21,15 +21,15 @@ module.exports = function(req, res) {
           return res.status(422).send({ error: 'Code not valid' });
         }
 
+        ref.update({ codeValid: false }); // used code already
+
+        // generates a JWT for this user
+        admin.auth().createCustomToken(phone)
+          .then(token => res.send({ token }))
+          .catch(error => res.status(500).send({ error }));
+
         return null;
       });
-
-      ref.update({ codeValid: false }); // used code already
-
-      // generates a JWT for this user
-      admin.auth().createCustomToken(phone)
-        .then(token => res.send({ token }))
-        .catch(error => res.status(500).send({ error }));
 
       return null;
     })
