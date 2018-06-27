@@ -5,4 +5,5 @@
 lerna-debug.log
 *~
 **/service-account-credentials.json
+**/twilio.js
 **/package-lock.json
